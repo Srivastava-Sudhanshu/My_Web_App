@@ -1,10 +1,9 @@
 from django.urls import path
-from Student_Portal.views import emphasized_HTML, index
+from Student_Portal.views import index
 from . import views
 from django.urls import path
 
 urlpatterns = [
-    path('',views.home),
-    path('index',views.index),
-    path('emph',views.emphasized_HTML),
+    path('',views.index),
+    path('GetAllStudents',views.GetAllStudents),
 ]

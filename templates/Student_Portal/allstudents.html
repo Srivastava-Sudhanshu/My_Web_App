@@ -1,0 +1,26 @@
+{% extends "Student_Portal/index.html" %}
+
+{% block content %}
+<table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Branch</th>
+        <th>Roll Number</th>
+        <th>Year Of Addmission</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for student in allstudents%}
+      <tr class="success">
+        <td>{{student.id}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.branch}}</td>
+        <td>{{student.roll_no}}</td>
+        <td>{{student.year_of_admissn}}</td>
+      </tr>      
+        {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

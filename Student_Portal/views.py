@@ -1,14 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from . import serializer
+from json import dumps
 
 # Create your views here.
 
-def home(request):
-    return HttpResponse('<h1> Welcome to Student ERP </h1>')
-
 def index(request):
-    portal_nam = {'portal':"Student ERP"}
-    return render(request,'Student_Portal\index.html',context=portal_nam)
+    #portal_nam = {'portal':"IMSEC STUDENT ERP"}
+    return render(request,'Student_Portal/index.html')
 
-def emphasized_HTML(request):
-    return HttpResponse('<em> Hello World </em>')
+def GetAllStudents(request):
+    if request.method == "GET":
+        all_students =  dict(serializer.GetAllStudents())
+        #all_students = dumps(all_students)
+        return render(request,'Student_Portal/allstudents.html',context=all_students)
+
