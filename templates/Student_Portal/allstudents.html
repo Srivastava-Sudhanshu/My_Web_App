@@ -12,9 +12,9 @@
       </tr>
     </thead>
     <tbody>
-        {% for student in allstudents%}
+        {% for student in students%}
       <tr class="success">
-        <td>{{student.id}}</td>
+        <td><a href="/student/{{student.id}}">{{student.id}}</a></td>
         <td>{{student.name}}</td>
         <td>{{student.branch}}</td>
         <td>{{student.roll_no}}</td>

@@ -2,10 +2,9 @@
 {%load static%}
 <head>
     <meta charset="utf-8">
-    
     <title>Student Portal</title>
-    
-    <script type="text/javascript" src="{% static "javascript/index.js" %}"></script>
+
+    <script type="text/javascript" src="{% static "javascript/globalconstants.js" %}"></script>
     <link rel="stylesheet" href="{% static "css/minstyle.css" %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -14,34 +13,25 @@
 </head>
 
 <body>
-    
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand" href="#">IMSEC</a>
           </div>
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/student">Home</a></li>
-            <li><a onclick="GetAllStudents()">Students</a></li>
-            <li><a href="#">Page 2</a></li>
+            <li class="active"><a href="/student"<i class="glyphicon glyphicon-home"></i> HOME</a></li>
+            <li><a href="/student/GetAllStudents"<i class="glyphicon glyphicon-th-list"></i> STUDENTS</a></li>
+            <li><a href="/student/AddStudent"<i class="glyphicon glyphicon-plus"></i> ADDSTUDENT</a></li>
             <li><a href="#">Page 3</a></li>
           </ul>
         </div>
       </nav>
-
-    <h1 class="col" style="margin-left: 300px;">WELCOME TO IMSEC STUDENT ERP</h1>
+    <h1 class="container-fluid col" style="margin-left: 300px;">WELCOME TO IMSEC STUDENT ERP</h1>
     {% block content %}
     <div style="margin-left: 475px; margin-top: 50px;">
-    <img src = "{% static "images/imsec.jfif" %}" alt="load image>"
+      <img src = "{% static "images/imsec.jfif" %}" alt="load image">
     </div>
-    <div style="margin-left: 60px; margin-bottom: 50px;">
-    </div>
-    {% endblock %}
-    <footer class="bg-col">
-        
-            IMSEC
-      
 
-    </footer>
+    {% endblock %}
 </body>
 

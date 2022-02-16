@@ -1,0 +1,1 @@
+var CONST_URL = window.location.href;
