@@ -9,3 +9,9 @@ class Student(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+class Branch(models.Model):
+    branch = models.CharField(max_length=100)
+
+    def __str__(self) -> str:
+        return self.branch

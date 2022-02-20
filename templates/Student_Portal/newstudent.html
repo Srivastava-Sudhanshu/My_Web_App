@@ -2,10 +2,27 @@
 
 {% block content %}
 <div class="container">
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li {% if messages.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
     <form method="post" action="AddNewStudent">
       {% csrf_token %}
-        <div class="container">{{form}}</div>
-        <div class="container ml-10"><input type="submit" class="btn btn-primary" value="Add"></div>
+      <div class="container col-sm-6">
+        <label for="sname">Name</label>
+        <div>{{form.name}}</div><br>
+        <label for="branch">Branch</label>
+        <div>{{form.branch}}</div><br>
+        <label for="roll_no">Roll No</label>
+        <div>{{form.roll_no}}</div><br>
+        <label for="year_of_admissn">Year Of Addmission</label>
+        <div>{{form.year_of_admissn}}</div><br>
+        <input type="submit" class="btn btn-primary" value="Add">
+        <a href="{% url 'GetAllStudents' %}" class="btn btn-info">Back To Record</a>
+      </div>
       </form><br>
       
       

@@ -1,49 +1,68 @@
+from email import message
+from pyexpat.errors import messages
 import re
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.template import RequestContext
 
-from Student_Portal.models import Student
+from Student_Portal.models import Student, Branch
 from django.views.decorators.csrf import csrf_exempt
 from .forms import StudentForm
+from django.contrib import messages
 
 # Create your views here.
 @csrf_exempt
+#This function navigates Home Screen
 def index(request):
-    #portal_nam = {'portal':"IMSEC STUDENT ERP"}
-    return render(request,'Student_Portal/index.html')
+    branches = Branch.objects.all()
+    return render(request,'Student_Portal/index.html',{'branches':branches})
 
+#This function gets all Students 
 def GetAllStudents(request):
     if request.method == "GET":
         students = Student.objects.all()
-        return render(request,'Student_Portal/allstudents.html',{'students':students})
+        total = students.count()
+        branches = Branch.objects.all()
+        return render(request,'Student_Portal/allstudents.html',{'students':students,'branches':branches, 'total':total})
 
+#This function gets all Students based on branch filter
+def GetAllStudentsBranchwise(request,branch):
+    if request.method == "GET":
+        students = Student.objects.all().filter(branch = branch)
+        total = students.count()
+        branches = Branch.objects.all()
+        return render(request,'Student_Portal/allstudents.html',{'students':students,'branches':branches,'branch':branch, 'total':total})
+
+#This function navigates Add Student Screen
 def AddStudentScreen(request):
     context = {}
     context['form'] = StudentForm()
     return render(request,'Student_Portal/newstudent.html',context)
 
+#This function adds New Student
 def AddNewStudent(request):
     if request.POST:
         form = StudentForm(request.POST)
         if form.is_valid():   
             form.save()
-            return redirect('/student/GetAllStudents')
+            messages.success(request, 'Added successfully')
+            form = StudentForm()
+            #return redirect('/student/GetAllStudents')
     else:
        form = StudentForm()
     return render(request,'Student_Portal/allstudents.html',{'form':form})
 
-def UpdateStudentScreen(request,id):
-        student = Student.objects.get(id = id)
-        form = StudentForm(request,instance = student)
-        return render(request,'Student_Portal/editstudent.html',{"form":form, "student":student})
-
+#This function updates the record of existing Student
 def UpdateStudent(request,id):
-    student = get_object_or_404(Student, id = id)
-    form = StudentForm(request.POST or None, instance=student)
-    if form.is_valid():
-        form.save()
-        return redirect('/student/GetAllStudents')
+    if request.POST:
+        student = Student.objects.get(pk = id)
+        form = StudentForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Record Updated successfully')
+            form = StudentForm()
     else:
-        return render(request,'Student_Portal/allstudents.html',{'form':form})
+        student = Student.objects.get(pk = id)
+        form = StudentForm(instance=student)
+    return render(request,'Student_Portal/editstudent.html',{"form":form})
 
