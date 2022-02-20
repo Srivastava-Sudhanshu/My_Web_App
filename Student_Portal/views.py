@@ -1,6 +1,7 @@
 from email import message
 from pyexpat.errors import messages
 import re
+from urllib import response
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.template import RequestContext
@@ -9,6 +10,7 @@ from Student_Portal.models import Student, Branch
 from django.views.decorators.csrf import csrf_exempt
 from .forms import StudentForm
 from django.contrib import messages
+import xlwt
 
 # Create your views here.
 @csrf_exempt
@@ -66,3 +68,29 @@ def UpdateStudent(request,id):
         form = StudentForm(instance=student)
     return render(request,'Student_Portal/editstudent.html',{"form":form})
 
+#This function exports the record to excel format
+def export_excel(request):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="Studentrecords.xls"'
+    
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('Student Data')
+    row_num = 0
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ["ID","Name","Branch","Roll No","Year Of Addmission"]
+
+    for col_num in range(len(columns)):
+        ws.write(row_num,col_num, columns[col_num],font_style)
+    
+    font_style = xlwt.XFStyle()
+    rows = Student.objects.all().values_list()
+
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+    wb.save(response)
+
+    return response

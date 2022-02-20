@@ -12,4 +12,5 @@ urlpatterns = [
     path('AddStudent',views.AddStudentScreen),
     path('AddNewStudent',views.AddNewStudent),
     path('<id>/UpdateStudent',views.UpdateStudent, name="UpdateStudent"),
+    path('export_excel',views.export_excel, name="export_excel"),
 ]

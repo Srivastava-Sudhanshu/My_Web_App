@@ -10,6 +10,7 @@
       <li><a href="{% url 'GetAllStudentsBranchwise' branch %}">{{ branch }}</a></li>
       {% endfor %}
     </ul>
+    <div class="right">Export To Excel <a href ="{% url 'export_excel'%}" type="button" <i class="glyphicon glyphicon-download-alt"></i></a></div>
     <a href="/student/GetAllStudents" type="button" class="btn btn-default"><i class="fa fa-close"></i> Clear All</a>
     <p class="col" id="pbrname">Showing results based on
       <span>{{branch}}</span>
