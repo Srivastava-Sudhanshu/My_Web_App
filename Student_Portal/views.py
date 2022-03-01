@@ -24,7 +24,7 @@ def GetAllStudents(request):
     if request.method == "GET":
         students = Student.objects.all()
         total = students.count()
-        branches = Branch.objects.all()
+        branches = Branch.objects.all().order_by('branch')
         return render(request,'Student_Portal/allstudents.html',{'students':students,'branches':branches, 'total':total})
 
 #This function gets all Students based on branch filter
@@ -32,7 +32,7 @@ def GetAllStudentsBranchwise(request,branch):
     if request.method == "GET":
         students = Student.objects.all().filter(branch = branch)
         total = students.count()
-        branches = Branch.objects.all()
+        branches = Branch.objects.all().order_by('branch')
         return render(request,'Student_Portal/allstudents.html',{'students':students,'branches':branches,'branch':branch, 'total':total})
 
 #This function navigates Add Student Screen

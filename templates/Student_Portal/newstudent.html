@@ -1,5 +1,4 @@
 {% extends "Student_Portal/index.html" %}
-
 {% block content %}
 <div class="container">
   {% if messages %}
@@ -12,20 +11,18 @@
     <form method="post" action="AddNewStudent">
       {% csrf_token %}
       <div class="container col-sm-6">
-        <label for="sname">Name</label>
+        <label for="sname" class="col">Name</label>
         <div>{{form.name}}</div><br>
-        <label for="branch">Branch</label>
+        <label for="branch" class="col">Branch</label>
         <div>{{form.branch}}</div><br>
-        <label for="roll_no">Roll No</label>
+        <label for="roll_no" class="col">Roll No</label>
         <div>{{form.roll_no}}</div><br>
-        <label for="year_of_admissn">Year Of Addmission</label>
+        <label for="year_of_admissn" class="col">Year Of Addmission</label>
         <div>{{form.year_of_admissn}}</div><br>
         <input type="submit" class="btn btn-primary" value="Add">
         <a href="{% url 'GetAllStudents' %}" class="btn btn-info">Back To Record</a>
       </div>
       </form><br>
-      
-      
 </div>
 
 {% endblock %}

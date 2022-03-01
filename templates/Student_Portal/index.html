@@ -8,6 +8,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="{% static "javascript/globalconstants.js" %}"></script>
     <script type="text/javascript" src="{% static "javascript/allstudents.js" %}"></script>
+    <script type="text/javascript" src="{% static "javascript/index.js" %}"></script>
     <link rel="stylesheet" href="{% static "css/minstyle.css" %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -20,20 +21,192 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">IMSEC</a>
+            <a class="navbar-brand" href="#">COLLEGE CODE 143</a>
           </div>
           <ul class="nav navbar-nav">
             <li class="active"><a href="/student"<i class="glyphicon glyphicon-home"></i> HOME</a></li>
             <li><a href="/student/GetAllStudents"<i class="glyphicon glyphicon-th-list"></i> STUDENTS</a></li>
             <li><a href="/student/AddStudent"<i class="glyphicon glyphicon-plus"></i> ADDSTUDENT</a></li>
+            <li class="active social"><a href="https://www.facebook.com/IMSEC143/" target="_blank" <i style="font-size:24px" class="fa">&#xf09a;</i></a></li>
+            <li class="active social"><a href="https://www.instagram.com/imsecghaziabad143/" target="_blank" <i style="font-size:24px" class="fa">&#xf16d;</i></a></li>
           </ul>
         </div>
       </nav>
-    <h1 class="container-fluid col" style="margin-left: 300px;">WELCOME TO IMSEC STUDENT ERP</h1>
-    {% block content %}
-    <div style="margin-left: 475px; margin-top: 50px;">
-      <img src = "{% static "images/imsec.jfif" %}" alt="load image">
+    <div class="bg-col">
+    <div class="img-responsive center-block">
+      <img src = "{% static "images/imsec_logo.jfif" %}" class="img-responsive center-block" alt="load image">
     </div>
+      {% block content %}
+      <section class="banner">
+        <div class="slideshow-container">
+            <img src = "{% static "images/imsec.jpg" %}" style="width:100%" alt="load image">
+        </div>
+      </section>
+    </div>
+
+    <section class="space grey-lighten">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-4 col-mid-4 mbg-mob">
+            <h2 class="heading heading--l heading--line wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">IMSEC Ghaziabad</h2>
+            <p class="text text--justify wow fadeInDown" style="visibility: visible; animation-name: fadeInDown;">Located in the industrial city of Ghaziabad, IMS Engineering College is known for quality technical and management education, centres of excellence, innovative teaching pedagogy, discipline, and other creative efforts.</p>
+            <p class="text text--justify wow fadeInDown" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">IMSEC Ghaziabad is one of the top-notch Engineering colleges in North India which has created a niche for itself since its establishment in 2002. It is ranked 4th in North Region wise ranking and 16th in Top 100 private Engineering college by Times Engineering Institute Ranking Survey 2020.</p>
+            <a href="http://imsec.ac.in/about/about-imsec" class="button button--p">Read More</a>
+          </div>
+          
+          <div class="col-12 col-md-4 col-small-4">
+            <h2 class="heading heading--l heading--line wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Important Links</h2>
+            
+            <ul class="sidebar sidebar--big">
+                
+  <li>
+      <a href="http://imsec.ac.in/achievements">
+         <div class="sidebar__img-area">
+            <i class="fa fa-file-text-o"></i>
+         </div>
+         <div class="sidebar__content">
+            <span class="sidebar__title">Achievements</span>
+         </div>
+      </a>
+   </li> 
+   
+   <li>
+    <a href="http://erp.imsec.ac.in/" target="_blank">
+       <div class="sidebar__img-area">
+          <i class="fa fa-cog"></i>
+       </div>
+       <div class="sidebar__content">
+          <span class="sidebar__title">College ERP</span>
+       </div>
+    </a>
+   </li>
+   <li>
+      <a href="https://aktu.ac.in/" target="_blank">
+         <div class="sidebar__img-area">
+            <i class="fa fa-link"></i>
+         </div>
+         <div class="sidebar__content">
+            <span class="sidebar__title">University Website</span>
+         </div>
+      </a>
+   </li>
+   <li>
+      <a href="http://imsec.ac.in/educational-verification-process">
+         <div class="sidebar__img-area">
+            <i class="fa fa-graduation-cap"></i>
+         </div>
+         <div class="sidebar__content">
+            <span class="sidebar__title">Educational Verification Process</span>
+         </div>
+      </a>
+   </li>
+   <li>
+      <a href="http://imsec.ac.in/admissions/e-brochure">
+         <div class="sidebar__img-area">
+            <i class="fa fa-download"></i>
+         </div>
+         <div class="sidebar__content">
+            <span class="sidebar__title">Download E-Brochure</span>
+         </div>
+      </a>
+   </li>
+   <li>
+      <a href="http://imsec.ac.in/admissions/ask-query">
+         <div class="sidebar__img-area">
+            <i class="fa fa-paper-plane"></i>
+         </div>
+         <div class="sidebar__content">
+            <span class="sidebar__title">Admission Enquiry</span>
+         </div>
+      </a>
+   </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
     {% endblock %}
+
+    <footer>
+      <div class="row">
+        <div class="col-12 col-md-7">
+          <div class="row">
+            <div class="col-12 col-md-8">
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <h5 class="footer-title" style="color: black;">QUICK LINKS</h5>
+                  <ul class="footer__list">
+                    <li  style="visibility: visible; animation-name: fadeInUp;"><a href="http://imsec.ac.in/mandatory-disclosure">Mandatory Disclosure</a></li>
+                    <li  style="visibility: visible; animation-name: fadeInUp;"><a href="http://imsec.ac.in/approvals">Approval Letters</a></li>
+                    <li  data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/balance-sheet-and-audit-report" data-wow-delay=".6s">Balance Sheet &amp; Audit Report</a></li>
+                    <li  style="visibility: visible; animation-name: fadeInUp;"><a href="http://imsec.ac.in/MoE-UGC-AICTE-Addon-Programs">MoE/ UGC/ AICTE Addon Programs</a></li>
+                    <li  data-wow-delay=".9s" style="visibility: visible; animation-delay: 0.9s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/media">Media</a></li>
+                    <li  data-wow-delay="1.2s" style="visibility: visible; animation-delay: 1.2s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/grievance">Grievance</a></li>
+                    <li  style="visibility: visible; animation-name: fadeInUp;"><a href="http://www.ijrimsec.com/assoc_art/index.php" target="_blank">Vivechan International Journal</a></li>
+                    <li  style="visibility: visible; animation-name: fadeInUp;"><a href="http://imsec.ac.in/Internal-Complaint-Committee">ICC-Internal Complaint Committee</a></li>
+                  </ul>
+                </div>
+                <div class="col-12 col-md-6">
+                  <h5 class="footer-title" style="color: black;">QUICK LINKS</h5>
+                  <ul class="footer__list">
+                    <li  data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/milestones">Engineering College Milestones</a></li>
+                    <li  data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/guideline-for-students">Guideline for Students</a></li>
+                    <!-- <li  data-wow-delay=".9s"><a href="https://aktu.ac.in/" target="_blank">University Website</a></li> -->
+                    <li  data-wow-delay="1.2s" style="visibility: visible; animation-delay: 1.2s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/convocation-proceeding">Convocation Proceeding</a></li>
+                    <li  data-wow-delay="1.5s" style="visibility: visible; animation-delay: 1.5s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/naac">NAAC</a></li>
+                    <li  style="visibility: visible; animation-name: fadeInUp;"><a href="http://imsec.ac.in/assets/pdf/naac/Criteria-7/Green%20Policy%20Document.pdf" target="_blank">Campus-Green Policy</a></li>
+                    <li  data-wow-delay="1.8s" style="visibility: visible; animation-delay: 1.8s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/others/nirf">NIRF</a></li>
+                    <li  data-wow-delay="1.8s" style="visibility: visible; animation-delay: 1.8s; animation-name: fadeInUp;"><a href="http://imsec.ac.in//envm-cell">Environmental Monitoring Cell</a></li>
+                    <li  style="visibility: visible; animation-name: fadeInUp;"><a href="http://digital.imsec.ac.in/studentclubimsec.jsp" target="_blank">Student Club's Registration</a></li>
+                  </ul>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <h5 class="footer-title" style="color: black;">FEST @ IMSEC</h5>
+              <ul class="footer__list">
+                <li  style="visibility: visible; animation-name: fadeInUp;"><a href="https://imsec.wordpress.com/2019/03/13/imsec-intra-college-annual-fest-vibgyor-2k19/" target="_blank">Cultural Fest : Vibgyor</a></li>
+                <li  data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/chakravyuh">Sport Fest: Chakravyuh</a></li>
+                <li  data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/Technovation/index.html" target="_blank">Technical Fest: Technovation</a></li>
+              </ul>
+              <h5 class="footer-title" style="color: black;">IMSEC SPORTS</h5>
+              <ul class="footer__list">
+                <li><a href="http://imsec.ac.in/campus/sports-and-leisure">Sports</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4"> 
+          <h5 class="footer-title" style="color: black;">CONTACT US</h5>
+          <div class="footer-address">
+            <ul class="footer__list">
+							<li>NH-24, Adhyatmik Nagar, Near Dasna, Distt: Ghaziabad. UP.</li>
+							<li>Landline: 0120-4940000</li>
+							<li>Email-Id: imsec@imsec.ac.in</li>
+							<li>WhatsApp: +91-9821396583</li>
+							<br>
+							<li>Admission:</li> 
+							<li>+91-9821396581/82/83,<br>+91-9821003291</li>
+                            <li>Toll-Free(Admission):1800-102-8393</li>
+							<li>Email-Id: enquiry@imsec.ac.in</li>
+					  </ul>
+        </div>
+      </div>
+    </div>
+      </div>
+      <div class="footer-copyright" style="text-align: center;">
+        <p style="color: black;">An IMS Group Institution<br>
+        <a href="https://imsgroup.ac.in/" target="_blank">www.imsgroup.ac.in</a></p>
+        
+    </div>
+      <div class="footer-copyright" style="margin-left:10px;">
+        <div class="row">
+          <div class="col-12 col-md-4" style="color: black;">
+            Copyright © IMS Engineering College Ghaziabad, All Rights Reserved.
+          </div>
+        </div>
+    </div>
+    </footer>
 </body>
 

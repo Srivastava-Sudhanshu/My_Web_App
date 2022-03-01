@@ -1,5 +1,5 @@
 {% extends "Student_Portal/index.html" %}
-
+{%load static%}
 {% block content %}
 <div class="container">
   <div class="dropdown">
@@ -10,7 +10,7 @@
       <li><a href="{% url 'GetAllStudentsBranchwise' branch %}">{{ branch }}</a></li>
       {% endfor %}
     </ul>
-    <div class="right">Export To Excel <a href ="{% url 'export_excel'%}" type="button" <i class="glyphicon glyphicon-download-alt"></i></a></div>
+    <div class="right col">Export To Excel <a href ="{% url 'export_excel'%}" type="button" <i class="glyphicon glyphicon-download-alt"></i></a></div>
     <a href="/student/GetAllStudents" type="button" class="btn btn-default"><i class="fa fa-close"></i> Clear All</a>
     <p class="col" id="pbrname">Showing results based on
       <span>{{branch}}</span>
@@ -21,7 +21,7 @@
 <div class="container">
 <table class="table">
     <thead>
-      <tr>
+      <tr class="col">
         <th>ID</th>
         <th>Name</th>
         <th>Branch</th>
@@ -31,8 +31,8 @@
     </thead>
     <tbody>
         {% for student in students%}
-      <tr class="success">
-        <td><a href="{% url 'UpdateStudent' student.id %}">{{student.id}}</a></td>
+      <tr class="col">
+        <td><a href="{% url 'UpdateStudent' student.id %}" class="col">{{student.id}}</a></td>
         <td>{{student.name}}</td>
         <td>{{student.branch}}</td>
         <td>{{student.roll_no}}</td>
