@@ -26,7 +26,9 @@
         <th>Name</th>
         <th>Branch</th>
         <th>Roll Number</th>
+        <th>Email-Id</th>
         <th>Year Of Addmission</th>
+        <th>Current Year</th>
       </tr>
     </thead>
     <tbody>
@@ -36,7 +38,13 @@
         <td>{{student.name}}</td>
         <td>{{student.branch}}</td>
         <td>{{student.roll_no}}</td>
+        {% if student.email == "0" %}
+          <td>--</td>
+        {% else %}
+          <td>{{student.email}}</td>
+        {% endif %}
         <td>{{student.year_of_admissn}}</td>
+        <td>{{student.current_year}}</td>
       </tr>      
         {% endfor %}
     </tbody>

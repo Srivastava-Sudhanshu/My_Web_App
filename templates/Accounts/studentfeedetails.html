@@ -1,0 +1,61 @@
+{% extends "Accounts/index.html" %}
+
+{% block content %}
+
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr class="col">
+            <th>Student ID</th>
+            <th>Student</th>
+            <th>Email-Id</th>
+            <th>Current Year</th>
+            <th>Fees Paid</th>
+            <th>Due Amount</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for stud in student_fee_details %}
+                {% if stud.payment_status %}
+                    <tr class="col">
+                        <td><a href="{% url 'PayFee' stud.student.id %}" class="col">{{stud.student.id}}</a></td>
+                        <td>{{stud.student}}</td>
+                        {% if stud.student.email == "0" %}
+                            <td>--</td>
+                        {% else %}     
+                            <td>{{stud.student.email}}</td>
+                        {% endif %}
+                        <td>{{stud.student.current_year}}</td>
+                        <td>{{stud.fees_paid}}/-</td>
+                        {% for i in total_fee %}
+                            
+                                <td>{{i}}/-</td>
+                            
+                        {% endfor %}
+                        <td>Paid</td>
+                    </tr>
+                {% else %}
+                    <tr class="col-unpaid">
+                        <td><a href="{% url 'PayFee' stud.student.id %}" class="col">{{stud.student.id}}</a></td>
+                        <td>{{stud.student}}</td>
+                        {% if stud.student.email == "0" %}
+                            <td>--</td>
+                        {% else %}     
+                            <td>{{stud.student.email}}</td>
+                        {% endif %}
+                        <td>{{stud.student.current_year}}</td>
+                        <td>{{stud.fees_paid}}/-</td>
+                        {% for i in total_fee %}
+                            
+                                <td>{{i}}/-</td>
+                            
+                        {% endfor %}
+                        <td>Due</td>
+                {% endif %}
+                </tr>
+            {% endfor %}     
+        </tbody>
+    </table>
+</div>
+{% endblock %}

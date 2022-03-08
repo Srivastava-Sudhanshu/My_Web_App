@@ -16,8 +16,8 @@ import xlwt
 @csrf_exempt
 #This function navigates Home Screen
 def index(request):
-    branches = Branch.objects.all()
-    return render(request,'Student_Portal/index.html',{'branches':branches})
+    #branches = Branch.objects.all()
+    return render(request,'Student_Portal/index.html')
 
 #This function gets all Students 
 def GetAllStudents(request):

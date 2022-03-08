@@ -1,4 +1,4 @@
-{% extends "Student_Portal/index.html" %}
+{% extends "Accounts/index.html" %}
 
 {% block content %}
 <div class="container">
@@ -9,19 +9,27 @@
       {% endfor %}
     </ul>
   {% endif %}
-    <form method="post" action="UpdateStudent">
-      {% csrf_token %}
+  <form method="post" action="PayFee">
+    {% csrf_token %}
       <div class="container col-sm-6">
         <label for="sname" class="col">Name</label>
-        <div>{{form.name}}</div><br>
+        <div>{{studform.name}}</div><br>
         <label for="branch" class="col">Branch</label>
-        <div>{{form.branch}}</div><br>
+        <div>{{studform.branch}}</div><br>
         <label for="roll_no" class="col">Roll No</label>
-        <div>{{form.roll_no}}</div><br>
+        <div>{{studform.roll_no}}</div><br>
         <label for="email" class="col">Email-Id</label>
-        <div>{{form.email}}</div><br>
+        <div>{{studform.email}}</div><br>
         <label for="current_year" class="col">Current Year</label>
-        <div>{{form.current_year}}</div><br>
+        <div>{{studform.current_year}}</div><br>
+        <label for="fees_paid" class="col">Fees Paid</label>
+        <div>{{form.fees_paid}}</div><br>
+        <label for="due" class="col">Due Amount</label>
+        <div>{{form.due_amount}}</div><br>
+        <label for="status" class="col">Payment Status</label>
+        <div>{{form.payment_status}}</div><br>
+        <label for="total_fee" class="col">Total Fee</label>
+        <div>{{current_year_fee_form.fee}}</div><br>
         <input type="submit" class="btn btn-primary" value="Update">
         <a href="{% url 'GetAllStudents' %}" class="btn btn-info">Back To Record</a>
       </div>
