@@ -9,30 +9,34 @@
       {% endfor %}
     </ul>
   {% endif %}
-  <form method="post" action="PayFee">
+  <label for="sid" class="col">Student ID</label>
+  <div><input type="text" name="sid" value={{studfee.student.id}} maxlength="20" required="" id="sid"></div><br>
+  <label for="sname" class="col">Name</label>
+  <div><input type="text" name="snmae" value={{studfee.student.name}} maxlength="20" required="" id="sname"></div><br>
+  <label for="branch" class="col">Branch</label>
+  <div><input type="text" name="branch" value={{studfee.student.branch}} maxlength="20" required="" id="branch"></div><br>
+  <label for="roll_no" class="col">Roll No</label>
+  <div><input type="text" name="roll_no" value={{studfee.student.roll_no}} maxlength="20" required="" id="roll_no"></div><br>
+  <label for="email" class="col">Email-Id</label>
+  <div><input type="text" name="email" value={{studfee.student.email}} maxlength="20" required="" id="email"></div><br>
+  <label for="current_year" class="col">Current Year</label>
+  <div><input type="text" name="current_year" value={{studfee.student.current_year}} maxlength="20" required="" id="current_year"></div><br>
+  <label for="due" class="col">To Be Paid</label>
+  <div><input type="text" name="due_amount" value={{studfee.due_amount}} maxlength="20" required="" id="due_amount"></div><br>  
+  <form method="post" action="{% url 'PayFee' studfee.student.id %}">
     {% csrf_token %}
       <div class="container col-sm-6">
-        <label for="sname" class="col">Name</label>
-        <div>{{studform.name}}</div><br>
-        <label for="branch" class="col">Branch</label>
-        <div>{{studform.branch}}</div><br>
-        <label for="roll_no" class="col">Roll No</label>
-        <div>{{studform.roll_no}}</div><br>
-        <label for="email" class="col">Email-Id</label>
-        <div>{{studform.email}}</div><br>
-        <label for="current_year" class="col">Current Year</label>
-        <div>{{studform.current_year}}</div><br>
         <label for="fees_paid" class="col">Fees Paid</label>
         <div>{{form.fees_paid}}</div><br>
-        <label for="due" class="col">Due Amount</label>
-        <div>{{form.due_amount}}</div><br>
+        <label for="pay" class="col">Payment</label>
+        <div>{{form.pay}}</div><br>
         <label for="status" class="col">Payment Status</label>
         <div>{{form.payment_status}}</div><br>
-        <label for="total_fee" class="col">Total Fee</label>
-        <div>{{current_year_fee_form.fee}}</div><br>
-        <input type="submit" class="btn btn-primary" value="Update">
-        <a href="{% url 'GetAllStudents' %}" class="btn btn-info">Back To Record</a>
+        <input type="submit" class="btn btn-primary" value="Deposite">
+        <a href="{% url 'GetStudentFeeDetails' %}" class="btn btn-info">Back To Record</a>
       </div>
-    </form><br>
+    </form>
+    <label for="total_fee" class="col">Total Fee</label>
+    <div>{{fees_form.fee}}</div><br>
 </div>
 {% endblock %}

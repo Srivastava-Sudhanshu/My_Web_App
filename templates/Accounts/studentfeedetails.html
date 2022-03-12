@@ -10,8 +10,11 @@
             <th>Student</th>
             <th>Email-Id</th>
             <th>Current Year</th>
+            <th>Total Fee</th>
             <th>Fees Paid</th>
             <th>Due Amount</th>
+            <th>Last Amount Paid </th>
+            <th>Date of Payment</th>
             <th>Status</th>
         </tr>
         </thead>
@@ -27,12 +30,11 @@
                             <td>{{stud.student.email}}</td>
                         {% endif %}
                         <td>{{stud.student.current_year}}</td>
+                        <td>{{stud.fees}}/-</td>
                         <td>{{stud.fees_paid}}/-</td>
-                        {% for i in total_fee %}
-                            
-                                <td>{{i}}/-</td>
-                            
-                        {% endfor %}
+                        <td>{{stud.due_amount}}/-</td>
+                        <td>{{stud.last_paid_amount}}/-</td>
+                        <td>{{stud.payment_date}}</td>
                         <td>Paid</td>
                     </tr>
                 {% else %}
@@ -45,12 +47,11 @@
                             <td>{{stud.student.email}}</td>
                         {% endif %}
                         <td>{{stud.student.current_year}}</td>
+                        <td>{{stud.fees}}/-</td>
                         <td>{{stud.fees_paid}}/-</td>
-                        {% for i in total_fee %}
-                            
-                                <td>{{i}}/-</td>
-                            
-                        {% endfor %}
+                        <td>{{stud.due_amount}}/-</td>
+                        <td>{{stud.last_paid_amount}}</td>
+                        <td>{{stud.payment_date}}</td>                      
                         <td>Due</td>
                 {% endif %}
                 </tr>

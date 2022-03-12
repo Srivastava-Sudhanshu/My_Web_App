@@ -8,6 +8,7 @@ from Student_Portal.models import Student
 from .forms import FeesForm,StudentFeeDetailsForm
 from django.contrib import messages
 from Student_Portal.forms import StudentForm
+from datetime import datetime
 
 # Create your views here.
 @csrf_exempt
@@ -19,30 +20,41 @@ def index(request):
 def GetStudentFeeDetails(request):
     if request.method == "GET":
         student_fee_details = StudentFeeDetails.objects.all()
-        #student = Student.objects.all()
-        total_fee=[]
-        #count = 0
         for stud in student_fee_details:
-            #count += 1
             fees_details = Fees.objects.get(year = stud.student.current_year)
-            total_fee.append(fees_details.fee)
-        return render(request,'Accounts/studentfeedetails.html',{"student_fee_details":student_fee_details,"total_fee":total_fee})
+            stud.fees = fees_details.fee
+            stud.due_amount = int(stud.fees) - int(stud.fees_paid)
+
+        return render(request,'Accounts/studentfeedetails.html',{"student_fee_details":student_fee_details})
     
 def PayFee(request,id):
+    student = Student.objects.get(pk=id)
+    current_year_fee = Fees.objects.filter(pk=student.current_year).first()
+    fees_form = FeesForm(instance=current_year_fee)
+    studentfee = StudentFeeDetails.objects.filter(student=id).first()
+    from_post = False
+
     if request.method == "POST":
-        studentfee = StudentFeeDetails.objects.get(student= id)
         form = StudentFeeDetailsForm(request.POST,instance=studentfee)
+        from_post = True
         if form.is_valid():
-            form.save()
+            _form = form.save(commit=False)
+            _form.fees_paid = int(_form.fees_paid) + int(_form.pay)
+            _form.last_paid_amount = _form.pay
+            _form.pay = 0
+            _form.payment_date = datetime.now()
+            if str(_form.fees_paid) == current_year_fee.fee or str(_form.fees_paid) > current_year_fee.fee:
+                _form.payment_status = True
+            _form.save()
             messages.success(request, 'Fee Paid successfully')
-            form = StudentFeeDetailsForm()
+            studentfee.due_amount = int(current_year_fee.fee) - int(studentfee.fees_paid)
+            form = StudentFeeDetailsForm(instance = studentfee)
     else:
-        student = Student.objects.get(pk=id)
-        studform = StudentForm(instance=student)
-        current_year_fee = Fees.objects.get(pk=student.current_year)
-        current_year_fee_form = FeesForm(instance=current_year_fee)
-        studentfee = StudentFeeDetails.objects.filter(student=student).first()
+        studentfee.due_amount = int(current_year_fee.fee) - int(studentfee.fees_paid)
         form = StudentFeeDetailsForm(instance = studentfee)
+        form.fields['payment_status'].widget.attrs['disabled'] = True
 
-    return render(request,'Accounts/payfee.html',{"studform":studform,"form":form,"current_year_fee_form":current_year_fee_form})
-
+    if(from_post):
+        if(form.errors):
+            print(form.errors)
+    return render(request,'Accounts/payfee.html',{"form":form,"studfee":studentfee,"fees_form":fees_form})

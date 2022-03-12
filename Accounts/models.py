@@ -12,8 +12,11 @@ class Fees(models.Model):
 
 class StudentFeeDetails(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    fees_paid = models.CharField(max_length=20)
+    fees_paid = models.CharField(max_length=20,default='0')
     payment_status = models.BooleanField()
+    pay = models.CharField(max_length=20,default='0')
+    last_paid_amount = models.CharField(max_length=20,default='0')
+    payment_date = models.DateTimeField(null=True)
 
     def __str__(self) -> str:
         return self.student.name

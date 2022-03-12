@@ -3,8 +3,9 @@ from pyexpat.errors import messages
 import re
 from urllib import response
 from django.shortcuts import redirect, render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
+from django.urls import reverse
 
 from Student_Portal.models import Student, Branch
 from django.views.decorators.csrf import csrf_exempt
@@ -43,20 +44,28 @@ def AddStudentScreen(request):
 
 #This function adds New Student
 def AddNewStudent(request):
+    from_post = False
+
     if request.POST:
+        from_post = True
         form = StudentForm(request.POST)
         if form.is_valid():   
             form.save()
             messages.success(request, 'Added successfully')
             form = StudentForm()
-            #return redirect('/student/GetAllStudents')
+            return HttpResponseRedirect(reverse('admin:index')) 
     else:
        form = StudentForm()
-    return render(request,'Student_Portal/allstudents.html',{'form':form})
+    if from_post:
+        if form.errors:
+            print(form.errors)
+    return render(request,'Student_Portal/newstudent.html',{'form':form})
 
 #This function updates the record of existing Student
 def UpdateStudent(request,id):
+    from_post = False
     if request.POST:
+        from_post = True
         student = Student.objects.get(pk = id)
         form = StudentForm(request.POST, instance=student)
         if form.is_valid():
@@ -66,6 +75,11 @@ def UpdateStudent(request,id):
     else:
         student = Student.objects.get(pk = id)
         form = StudentForm(instance=student)
+        #form.fields['payment_status'].widget.attrs['disabled'] = True
+        form.fields['year_of_admissn'].widget.attrs['readonly'] = True
+    if from_post:
+        if form.errors:
+            print(form.errors)
     return render(request,'Student_Portal/editstudent.html',{"form":form})
 
 #This function exports the record to excel format

@@ -6,8 +6,7 @@
 
     <link rel="icon" type="image/x-icon" href="{% static "images/imsec.jfif" %}">
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="{% static "javascript/globalconstants.js" %}"></script>
-    <script type="text/javascript" src="{% static "javascript/allstudents.js" %}"></script>
+    <script type="text/javascript" src="{% static "javascript/Accounts/index.js" %}"></script>
     <link rel="stylesheet" href="{% static "css/minstyle.css" %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -25,6 +24,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="/accounts"<i class="glyphicon glyphicon-briefcase"></i> ACCOUNTS</a></li>
             <li class="active"><a href="{% url 'GetStudentFeeDetails'%}"<i class="glyphicon glyphicon-list"></i> STUDENTS FEE DETAILS</a></li>
+            <li class="active"><a href="javascript:void(0)" onclick="Redirect_To_Students()"<i class="glyphicon glyphicon-user"></i> STUDENT</a></li>
           </ul>
         </div>
       </nav>

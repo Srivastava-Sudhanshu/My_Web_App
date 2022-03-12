@@ -6,8 +6,9 @@
 
     <link rel="icon" type="image/x-icon" href="{% static "images/imsec.jfif" %}">
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="{% static "javascript/globalconstants.js" %}"></script>
-    <script type="text/javascript" src="{% static "javascript/allstudents.js" %}"></script>
+    <script type="text/javascript" src="{% static "javascript/Student_Portal/globalconstants.js" %}"></script>
+    <script type="text/javascript" src="{% static "javascript/Student_Portal/allstudents.js" %}"></script>
+    <script type="text/javascript" src="{% static "javascript/Student_Portal/index.js" %}"></script>
     <link rel="stylesheet" href="{% static "css/minstyle.css" %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -26,6 +27,7 @@
             <li class="active"><a href="/student"<i class="glyphicon glyphicon-home"></i> HOME</a></li>
             <li><a href="/student/GetAllStudents"<i class="glyphicon glyphicon-th-list"></i> STUDENTS</a></li>
             <li><a href="/student/AddStudent"<i class="glyphicon glyphicon-plus"></i> ADDSTUDENT</a></li>
+            <li><a href="javascript:void(0)" onclick="Redirect_To_Accounts()"<i class="glyphicon glyphicon-briefcase"></i> ACCOUNTS</a></li>
             <li class="active social"><a href="https://www.facebook.com/IMSEC143/" target="_blank" <i style="font-size:24px" class="fa">&#xf09a;</i></a></li>
             <li class="active social"><a href="https://www.instagram.com/imsecghaziabad143/" target="_blank" <i style="font-size:24px" class="fa">&#xf16d;</i></a></li>
           </ul>
@@ -35,7 +37,6 @@
     <div class="img-responsive center-block">
       <img src = "{% static "images/imsec_logo.jfif" %}" class="img-responsive center-block" alt="load image">
     </div>
-
   {% block content %}
       <section class="banner">
         <div class="slideshow-container">
