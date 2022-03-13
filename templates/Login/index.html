@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{%load static%}
+<head>
+    <meta charset="utf-8">
+    <title>IMSEC</title>
+    <link rel="icon" type="image/x-icon" href="{% static "images/imsec.jfif" %}">
+    <link rel="stylesheet" href="{% static "css/minstyle.css" %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+
+<body class="bg-col">
+    <div class="img-responsive center-block">
+        <img src = "{% static "images/imsec_logo.jfif" %}" class="img-responsive center-block" alt="load image">
+    </div>
+    <div class="container">
+        {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+            <li {% if messages.tags %} class="{{ message.tags }}" style="color: white" {% endif %}>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+    </div>
+    <div class="container" style="display: flex; align-items: center; justify-content: center; margin-top: 100px;">
+        <form method="POST">
+            {% csrf_token %}
+                <label for="username" class="col">Username</label>
+                <div>{{form.username}}</div>
+                <label for="password" class="col">Password</label>
+                <div>{{form.password}}</div><br>
+                <button class="btn btn-primary" type="submit">Login</button>
+            
+        </form>
+    </div>
+</body>

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Student_Portal',
     'Accounts',
+    'Login',
 ]
 
 MIDDLEWARE = [
@@ -73,7 +74,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'My_Web_App.wsgi.application'
-
+LOGIN_URL = 'http://127.0.0.1:8000/'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
