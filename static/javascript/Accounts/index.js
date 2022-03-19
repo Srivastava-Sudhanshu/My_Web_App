@@ -3,3 +3,8 @@ function Redirect_To_Students(){
         location.href="/student/";
     }
 }
+
+function SearchByID(){
+    var id = $("#sid").val()
+    location.href = "/accounts/GetStudentFeeDetails_Id/" + id;
+}

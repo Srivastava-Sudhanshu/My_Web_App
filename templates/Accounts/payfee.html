@@ -9,6 +9,8 @@
       {% endfor %}
     </ul>
   {% endif %}
+  <label for="total_fee" class="col">Total Fee</label>
+  <div>{{fees_form.fee}}</div><br>
   <label for="sid" class="col">Student ID</label>
   <div><input type="text" name="sid" value={{studfee.student.id}} maxlength="20" required="" id="sid"></div><br>
   <label for="sname" class="col">Name</label>
@@ -36,7 +38,5 @@
         <a href="{% url 'GetStudentFeeDetails' %}" class="btn btn-info">Back To Record</a>
       </div>
     </form>
-    <label for="total_fee" class="col">Total Fee</label>
-    <div>{{fees_form.fee}}</div><br>
 </div>
 {% endblock %}

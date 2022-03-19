@@ -29,6 +29,15 @@ def GetStudentFeeDetails(request):
             stud.due_amount = int(stud.fees) - int(stud.fees_paid)
         return render(request,'Accounts/studentfeedetails.html',{"student_fee_details":student_fee_details})
 
+#Students by ID
+def GetStudentFeeDetails_Id(request,id):
+    if request.method == "GET":
+        student_fee_details = StudentFeeDetails.objects.filter(student=id)
+        for detail in student_fee_details:
+            pass
+        #fees_details = Fees.objects.filter(year = student_fee_details.student.current_year)
+        return render(request,'Accounts/studentfeedetails.html',{"student_fee_details":student_fee_details})
+
 #Pay Fee for a student
 def PayFee(request,id):
     student = Student.objects.get(pk=id)
