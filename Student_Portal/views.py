@@ -93,7 +93,7 @@ def export_excel(request):
     font_style = xlwt.XFStyle()
     font_style.font.bold = True
 
-    columns = ["ID","Name","Branch","Roll No","Year Of Addmission"]
+    columns = ["ID","Name","Branch","Roll No","Year Of Addmission","Current Year","Email"]
 
     for col_num in range(len(columns)):
         ws.write(row_num,col_num, columns[col_num],font_style)

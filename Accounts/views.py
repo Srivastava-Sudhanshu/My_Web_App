@@ -1,3 +1,6 @@
+from ast import pattern
+from tkinter.ttk import Style
+from xml.sax.handler import DTDHandler as dt
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext
@@ -8,8 +11,8 @@ from Student_Portal.models import Student,Branch
 from .forms import FeesForm,StudentFeeDetailsForm
 from django.contrib import messages
 from Student_Portal.forms import StudentForm
-from datetime import datetime
-#from django.contrib.auth.decorators import login_required
+from datetime import datetime, tzinfo
+import xlwt
 
 # Create your views here.
 @csrf_exempt
@@ -77,3 +80,47 @@ def PayFee(request,id):
         if(form.errors):
             print(form.errors)
     return render(request,'Accounts/payfee.html',{"form":form,"studfee":studentfee,"fees_form":fees_form})
+
+#This function exports the record to excel format
+def export_to_excel(request):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="Feesrecord.xls"'
+    
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('Fee Data')
+    row_num = 0
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ["ID","Fees Paid","Not Due ?","Last Paid Amount","Name","Current Year","Email","Due"]
+
+    for col_num in range(len(columns)):
+        ws.write(row_num,col_num, columns[col_num],font_style)
+    
+    font_style = xlwt.XFStyle()
+    rows = StudentFeeDetails.objects.values_list('student','fees_paid','payment_status','last_paid_amount')
+    for row in rows:
+        row_num += 1
+        row = list(row)
+        rows_=(Student.objects.get(pk=row[0]))
+        row.append(rows_.name)
+        row.append(rows_.current_year)
+        row.append(rows_.email)
+
+        if(row[2] == False):
+            current_year_fee = Fees.objects.filter(pk=rows_.current_year).first()
+            rows_.dueamount = int(current_year_fee.fee) - int(row[1]) 
+            font_style = xlwt.XFStyle()
+            pattern = xlwt.Pattern()
+            pattern.pattern = xlwt.Pattern.SOLID_PATTERN
+            pattern.pattern_fore_colour = xlwt.Style.colour_map['red']
+            font_style.pattern = pattern
+        else:
+            rows_.dueamount = 0
+        
+        row.append(rows_.dueamount)
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+    wb.save(response)
+
+    return response
