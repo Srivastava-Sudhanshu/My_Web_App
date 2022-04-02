@@ -129,3 +129,35 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR,"debug.log"),
+            'formatter':'simple',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+    'formatters':{
+        'simple':{
+            'format':'{levelname} {message}',
+            'style':'{',
+        }
+    }
+}
+
+#EMAIL RELATED STUFFS
+EMAIL_SERVER = 'smtp.gmail.com'
+EMAIL_PORT_NO = 587
+EMAIL_CREDENTIALS_PATH = os.path.abspath("Newfolder/Credentials.txt")
+EMAIL_TEMPLATE = os.path.abspath("email_template/Send_Mails.html")

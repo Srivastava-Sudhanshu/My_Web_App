@@ -1,4 +1,5 @@
 from ast import pattern
+import logging
 from tkinter.ttk import Style
 from xml.sax.handler import DTDHandler as dt
 from django.shortcuts import render
@@ -6,15 +7,17 @@ from django.http import HttpResponse
 from django.template import RequestContext
 import re
 from django.views.decorators.csrf import csrf_exempt
-from Accounts.models import Fees,StudentFeeDetails
+from .models import Fees,StudentFeeDetails
 from Student_Portal.models import Student,Branch
 from .forms import FeesForm,StudentFeeDetailsForm
 from django.contrib import messages
 from Student_Portal.forms import StudentForm
-from datetime import datetime, tzinfo
+from datetime import datetime
 import xlwt
+import My_Web_App.send_mails as send_mails
 
 # Create your views here.
+logger = logging.getLogger('django')
 @csrf_exempt
 #Accounts Home Screen
 def index(request):
@@ -37,8 +40,9 @@ def GetStudentFeeDetails_Id(request,id):
     if request.method == "GET":
         student_fee_details = StudentFeeDetails.objects.filter(student=id)
         for detail in student_fee_details:
-            pass
-        #fees_details = Fees.objects.filter(year = student_fee_details.student.current_year)
+            fees_details = Fees.objects.get(year = detail.student.current_year)
+            detail.fees = fees_details
+            detail.due_amount = int(str(detail.fees)) - int(detail.fees_paid)
         return render(request,'Accounts/studentfeedetails.html',{"student_fee_details":student_fee_details})
 
 #Pay Fee for a student
@@ -124,3 +128,22 @@ def export_to_excel(request):
     wb.save(response)
 
     return response
+
+def DueFeeNotification(request):
+    try:
+        logger = logging.getLogger('django')
+        student_fee_details = StudentFeeDetails.objects.all()
+        for stud in student_fee_details:
+            fees_details = Fees.objects.get(year = stud.student.current_year)
+            stud.fees = fees_details.fee
+            stud.due_amount = int(stud.fees) - int(stud.fees_paid)
+            if stud.due_amount > 0:
+                logger.info("Calling send mails for due")
+                status = send_mails.SendMailForDue(stud)
+    except Exception as e:
+        logger.info(f"Error: {e}")
+        status = "Something went wrong!!"
+        return status
+    return HttpResponse(status)
+
+    

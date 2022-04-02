@@ -5,8 +5,10 @@
     <input type="text" id="sid" placeholder="Enter ID">
     <input type="button" class="btn btn-primary" value="Search" onclick="SearchByID()">
 </div>
-<div class="right col">Export To Excel <a href ="{% url 'export_to_excel' %}" type="button" <i class="glyphicon glyphicon-download-alt"></i></a></div>
-
+<div class="right col">
+    <div>Export To Excel <a href ="{% url 'export_to_excel' %}" type="button" <i class="glyphicon glyphicon-download-alt"></i></a></div>
+    <div>Send Due Mails <a href ="{% url 'duefeenotification' %}" type="button" <i class="glyphicon glyphicon-envelope"></i></a></div>
+</div>
 <div class="container">
     <table class="table">
         <thead>
@@ -25,7 +27,7 @@
         </thead>
         <tbody>
             {% for stud in student_fee_details %}
-                {% if stud.payment_status %}
+                {% if stud.due_amount == 0 %}
                     <tr class="col">
                         <td><a href="{% url 'PayFee' stud.student.id %}" class="col">{{stud.student.id}}</a></td>
                         <td>{{stud.student}}</td>
