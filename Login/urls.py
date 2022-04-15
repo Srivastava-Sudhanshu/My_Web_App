@@ -6,5 +6,5 @@ from django.urls import path, re_path
 import Accounts
 
 urlpatterns =[
-    path('',views.index),
+    path('',views.index,name='Login'),
 ]

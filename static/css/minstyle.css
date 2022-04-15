@@ -156,3 +156,10 @@ a.socialIcon:hover, .socialHoverClass {
 	-ms-transition: all 0.8s;
 	transition: all 0.8s;
 }
+.right-navbar{
+    position: absolute;
+    right: -350px;
+    width: 300px;
+    padding: 10px;
+    margin-top: -7px
+}
