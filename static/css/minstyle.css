@@ -1,8 +1,34 @@
+html,body
+{
+    width: 100%;
+    /* height: 100%; */
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
 .col{
     color: white;
 }
+.myMarquee{
+    width: 100%;
+    height: 38px;
+    font-size: 30px;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
 .bg-col{
-    background-color: navy;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/College_BG.webp");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.addStudentForm{
+    /* box-shadow: 10px 10px 5px black; */
+    padding-left: 40%;
+    background-image: url("../images/College_BG.webp");
+    background-repeat: no-repeat;
 }
 .right{
     position: absolute;
@@ -18,18 +44,19 @@
     padding: 10px;
     margin-top: -10px
 }
-.banner{
-    /* padding-right: 30px; */
-    margin-top: 40px;
+
+.tbl{
+    background-color: blueviolet;
 }
-/* Slideshow container */
-.slideshow-container {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
+
+th{
+    color: black;
+}
+td{
+    color: black;
 }
 tr:hover {
-    background-color: #6a5acd;
+    background-color: burlywood;
 }
 .addNew{
     position: absolute;
@@ -38,12 +65,16 @@ tr:hover {
     padding: 10px;
     margin-top: 10px;
 }
+.updateStudent{
+    background-image: url("../images/College_BG.webp");
+}
 footer {
     text-align: center;
     padding: 3px;
     background-color: white;
     color: white;
     position: relative;
+    border-top: 5px solid grey;
 }
 .footer-address{
     color: black;
@@ -79,6 +110,7 @@ footer {
 }
 .space {
     padding: 50px 0;
+    border-top: 2px black;
 }
 .heading--l {
     font-size: 30px;
@@ -162,4 +194,19 @@ a.socialIcon:hover, .socialHoverClass {
     width: 300px;
     padding: 10px;
     margin-top: -7px
+}
+.a_login_signupscreen{
+    color:white;
+}
+.signup{
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    margin-top: 50px;
+}
+.login{
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    margin-top: 100px;
 }

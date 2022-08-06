@@ -1,0 +1,89 @@
+{% extends "StudentDashboard/login.html" %}
+{%load static%}
+
+<body class="bg-col" onload="signupform()">
+    {% block content %}
+    <!-- <div class="img-responsive center-block">
+        <img src = "{% static "images/imsec_logo.jfif" %}" class="img-responsive center-block" alt="load image">
+    </div> -->
+    <div class="container" style="background-color: whitesmoke;">
+        {% if messages %}
+          <ul class="messages" style="color: red;">
+            {% for message in messages %}
+            <li {% if messages.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{field.label}}: {{error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+    
+    <div class="container signup">
+        <form method="post" action="signup">
+            {% csrf_token %}
+                <label for="username" class="col">Username/Loginid(Roll No)</label>
+                <div><input type="text" name="loginid" required id="txtusername" size="30"></div>
+                <label for="password" class="col">Password</label>
+                <div>
+                    <input type="password" onchange="PasswordValidationchange()" name="password" required id="txtpassword" size="30">
+                    <span id="passworderror" style="color:white;display: none;">
+                        Password is not compliant to password policy
+                    </span>
+                </div>
+                <div>
+                    <input type="checkbox" onclick="showPassword()">
+                    <span style="color:white">Show Password</span>
+                </div>
+                <label for="Repassword" class="col">Confirm Password</label>
+                <div>
+                    <input type="password" onchange="ConfirmPasswordchange()" name="password1" required id="txtRepassword" size="30">
+                    <span id="confirmpassworderror" style="color:white;display: none;">
+                        Password did not match
+                    </span>
+                </div>
+                <div>
+                    <input type="checkbox" onclick="showPassword1()">
+                    <span style="color:white">
+                        Show Confirm Password
+                    </span>
+                </div>
+                <label for="email" class="col">Email</label>
+                <div><input type="email" name="email" required id="txtemail" size="30"></div>
+                <label for="OTP" class="col">OTP</label>
+                <div>
+                    <input type="OTP" onchange="VerifyOTPchange()" name="OTP" required id="txtOTP" size="30">
+                    <a class="btn a_login_signupscreen" id="a_generateOTP" onclick="GenerateOTP()">Generate OTP</a>
+                    <span id="OTPerror" style="color:white;display: none;">
+                        OTP did not match
+                    </span>
+                </div>
+                <div>
+                    <ul style="color: black;margin-left: -30px;">
+                        <strong style="margin-left: -13px;">Password policy</strong>
+                        <b>
+                            <li>Password must be 10 characters in length</li>
+                            <li>Password must contain atleast one uppercase letter</li>
+                            <li>Password must contain atleast one lowercase letter</li>
+                            <li>Password must contain atleast one numeric value</li>
+                            <li>Password must contain atleast one special character</li>
+                        </b>
+                    </ul>
+                </div>
+                <input type="submit" class="btn btn-primary" disabled id="btnSubmit" value="Signup"/>
+        </form>
+        
+    </div>
+    {% endblock %}
+</body>

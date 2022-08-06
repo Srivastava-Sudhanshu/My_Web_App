@@ -2,9 +2,8 @@
 {%load static%}
 <head>
     <meta charset="utf-8">
-    <title>IMSEC</title>
+    <title>MCE</title>
 
-    <link rel="icon" type="image/x-icon" href="{% static "images/imsec.jfif" %}">
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="{% static "javascript/Accounts/index.js" %}"></script>
     <script type="text/javascript" src="{% static "javascript/Accounts/studentfeedetails.js" %}"></script>
@@ -24,19 +23,19 @@
           </div>
           <ul class="nav navbar-nav">
             <li class="active"><a href="/accounts"<i class="glyphicon glyphicon-briefcase"></i> ACCOUNTS</a></li>
-            <li class="active"><a href="{% url 'GetStudentFeeDetails'%}"<i class="glyphicon glyphicon-list"></i> STUDENTS FEE DETAILS</a></li>
+            <li class="active"><a href="{% url 'StudentFeeDetails'%}"<i class="glyphicon glyphicon-list"></i> STUDENTS FEE DETAILS</a></li>
             <li class="active"><a href="javascript:void(0)" onclick="Redirect_To_Students()"<i class="glyphicon glyphicon-user"></i> STUDENT</a></li>
           </ul>
         </div>
       </nav>
-      <div class="bg-col">
-        <div class="img-responsive center-block">
+      <div class="">
+        <!-- <div class="img-responsive center-block">
           <img src = "{% static "images/imsec_logo.jfif" %}" class="img-responsive center-block" alt="load image">
-        </div>
+        </div> -->
 </body>
 
 {% block content %}
-        <div class="container">
+        <div class="container bg-col">
             <table class="table">
                 <thead>
                 <tr class="col">
@@ -66,43 +65,43 @@
             <div class="col-12 col-md-6">
               <h5 class="footer-title" style="color: black;">QUICK LINKS</h5>
               <ul class="footer__list">
-                <li  style="visibility: visible; animation-name: fadeInUp;"><a href="http://imsec.ac.in/mandatory-disclosure">Mandatory Disclosure</a></li>
-                <li  style="visibility: visible; animation-name: fadeInUp;"><a href="http://imsec.ac.in/approvals">Approval Letters</a></li>
-                <li  data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/balance-sheet-and-audit-report" data-wow-delay=".6s">Balance Sheet &amp; Audit Report</a></li>
-                <li  style="visibility: visible; animation-name: fadeInUp;"><a href="http://imsec.ac.in/MoE-UGC-AICTE-Addon-Programs">MoE/ UGC/ AICTE Addon Programs</a></li>
-                <li  data-wow-delay=".9s" style="visibility: visible; animation-delay: 0.9s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/media">Media</a></li>
-                <li  data-wow-delay="1.2s" style="visibility: visible; animation-delay: 1.2s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/grievance">Grievance</a></li>
-                <li  style="visibility: visible; animation-name: fadeInUp;"><a href="http://www.ijrimsec.com/assoc_art/index.php" target="_blank">Vivechan International Journal</a></li>
-                <li  style="visibility: visible; animation-name: fadeInUp;"><a href="http://imsec.ac.in/Internal-Complaint-Committee">ICC-Internal Complaint Committee</a></li>
+                <li  style="visibility: visible; animation-name: fadeInUp;"><a href="#">Mandatory Disclosure</a></li>
+                <li  style="visibility: visible; animation-name: fadeInUp;"><a href="#">Approval Letters</a></li>
+                <li  data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;"><a href="#" data-wow-delay=".6s">Balance Sheet &amp; Audit Report</a></li>
+                <li  style="visibility: visible; animation-name: fadeInUp;"><a href="#">MoE/ UGC/ AICTE Addon Programs</a></li>
+                <li  data-wow-delay=".9s" style="visibility: visible; animation-delay: 0.9s; animation-name: fadeInUp;"><a href="#">Media</a></li>
+                <li  data-wow-delay="1.2s" style="visibility: visible; animation-delay: 1.2s; animation-name: fadeInUp;"><a href="#">Grievance</a></li>
+                <li  style="visibility: visible; animation-name: fadeInUp;"><a href="#" target="_blank">Vivechan International Journal</a></li>
+                <li  style="visibility: visible; animation-name: fadeInUp;"><a href="#">ICC-Internal Complaint Committee</a></li>
               </ul>
             </div>
             <div class="col-12 col-md-6">
               <h5 class="footer-title" style="color: black;">QUICK LINKS</h5>
               <ul class="footer__list">
-                <li  data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/milestones">Engineering College Milestones</a></li>
-                <li  data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/guideline-for-students">Guideline for Students</a></li>
+                <li  data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;"><a href="#">Engineering College Milestones</a></li>
+                <li  data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;"><a href="#">Guideline for Students</a></li>
                 <!-- <li  data-wow-delay=".9s"><a href="https://aktu.ac.in/" target="_blank">University Website</a></li> -->
-                <li  data-wow-delay="1.2s" style="visibility: visible; animation-delay: 1.2s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/convocation-proceeding">Convocation Proceeding</a></li>
-                <li  data-wow-delay="1.5s" style="visibility: visible; animation-delay: 1.5s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/naac">NAAC</a></li>
-                <li  style="visibility: visible; animation-name: fadeInUp;"><a href="http://imsec.ac.in/assets/pdf/naac/Criteria-7/Green%20Policy%20Document.pdf" target="_blank">Campus-Green Policy</a></li>
-                <li  data-wow-delay="1.8s" style="visibility: visible; animation-delay: 1.8s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/others/nirf">NIRF</a></li>
-                <li  data-wow-delay="1.8s" style="visibility: visible; animation-delay: 1.8s; animation-name: fadeInUp;"><a href="http://imsec.ac.in//envm-cell">Environmental Monitoring Cell</a></li>
-                <li  style="visibility: visible; animation-name: fadeInUp;"><a href="http://digital.imsec.ac.in/studentclubimsec.jsp" target="_blank">Student Club's Registration</a></li>
+                <li  data-wow-delay="1.2s" style="visibility: visible; animation-delay: 1.2s; animation-name: fadeInUp;"><a href="#">Convocation Proceeding</a></li>
+                <li  data-wow-delay="1.5s" style="visibility: visible; animation-delay: 1.5s; animation-name: fadeInUp;"><a href="#">NAAC</a></li>
+                <li  style="visibility: visible; animation-name: fadeInUp;"><a href="#" target="_blank">Campus-Green Policy</a></li>
+                <li  data-wow-delay="1.8s" style="visibility: visible; animation-delay: 1.8s; animation-name: fadeInUp;"><a href="#">NIRF</a></li>
+                <li  data-wow-delay="1.8s" style="visibility: visible; animation-delay: 1.8s; animation-name: fadeInUp;"><a href="#">Environmental Monitoring Cell</a></li>
+                <li  style="visibility: visible; animation-name: fadeInUp;"><a href="#" target="_blank">Student Club's Registration</a></li>
               </ul>
               
             </div>
           </div>
         </div>
         <div class="col-12 col-md-4">
-          <h5 class="footer-title" style="color: black;">FEST @ IMSEC</h5>
+          <h5 class="footer-title" style="color: black;">FEST @ MCE</h5>
           <ul class="footer__list">
-            <li  style="visibility: visible; animation-name: fadeInUp;"><a href="https://imsec.wordpress.com/2019/03/13/imsec-intra-college-annual-fest-vibgyor-2k19/" target="_blank">Cultural Fest : Vibgyor</a></li>
-            <li  data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/chakravyuh">Sport Fest: Chakravyuh</a></li>
-            <li  data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;"><a href="http://imsec.ac.in/Technovation/index.html" target="_blank">Technical Fest: Technovation</a></li>
+            <li  style="visibility: visible; animation-name: fadeInUp;"><a href="#" target="_blank">Cultural Fest : Vibgyor</a></li>
+            <li  data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;"><a href="#">Sport Fest: Chakravyuh</a></li>
+            <li  data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;"><a href="#" target="_blank">Technical Fest: Technovation</a></li>
           </ul>
-          <h5 class="footer-title" style="color: black;">IMSEC SPORTS</h5>
+          <h5 class="footer-title" style="color: black;">MCE SPORTS</h5>
           <ul class="footer__list">
-            <li><a href="http://imsec.ac.in/campus/sports-and-leisure">Sports</a></li>
+            <li><a href="#">Sports</a></li>
           </ul>
         </div>
       </div>
@@ -111,28 +110,28 @@
       <h5 class="footer-title" style="color: black;">CONTACT US</h5>
       <div class="footer-address">
         <ul class="footer__list">
-          <li>NH-24, Adhyatmik Nagar, Near Dasna, Distt: Ghaziabad. UP.</li>
-          <li>Landline: 0120-4940000</li>
-          <li>Email-Id: imsec@imsec.ac.in</li>
-          <li>WhatsApp: +91-9821396583</li>
+          <li>Ghaziabad. UP.</li>
+          <li>Landline: 0120-49432222</li>
+          <li>Email-Id: mce@mec.ac.in</li>
+          <li>WhatsApp: +91-9812396583</li>
           <br>
           <li>Admission:</li> 
-          <li>+91-9821396581/82/83,<br>+91-9821003291</li>
-                        <li>Toll-Free(Admission):1800-102-8393</li>
-          <li>Email-Id: enquiry@imsec.ac.in</li>
+          <li>+91-9821323581/82/83,<br>+91-98217873291</li>
+                        <li>Toll-Free(Admission):1901-102-8093</li>
+          <li>Email-Id: enquiry@mec.ac.in</li>
         </ul>
     </div>
   </div>
 </div>
   </div>
   <div class="footer-copyright" style="text-align: center;">
-    <p style="color: black;">An IMS Group Institution<br>
-    <a href="https://imsgroup.ac.in/" target="_blank">www.imsgroup.ac.in</a></p>   
+    <p style="color: black;">An MCE Group Institution<br>
+    <a href="#" target="_blank">www.mcegroup.ac.in</a></p>   
  </div>
   <div class="footer-copyright" style="margin-left:10px;">
     <div class="row">
       <div class="col-12 col-md-4" style="color: black;">
-        Copyright © IMS Engineering College Ghaziabad, All Rights Reserved.
+        Copyright © My College of Engineering College Ghaziabad, All Rights Reserved.
       </div>
     </div>
 </div>
@@ -140,9 +139,9 @@
   <div class="row">
     <div>
       <ul class="social-network social-circle">
-        <li><a href="https://www.facebook.com/IMSEC143/" target="_blank" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-        <li><a href="https://twitter.com/IMSECGhaziabad" target="_blank" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/in/imsecghaziabad" target="_blank" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="#" target="_blank" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#" target="_blank" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#" target="_blank" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
       </ul>
     </div>
   </div>

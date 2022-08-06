@@ -1,7 +1,7 @@
 {% extends "Student_Portal/index.html" %}
 
 {% block content %}
-<div class="container">
+<div class="container updateStudent">
   {% if messages %}
     <ul class="messages">
       {% for message in messages %}
@@ -25,7 +25,7 @@
         <label for="year_of_admissn" class="col">Year Of Addmission</label>
         <div>{{form.year_of_admissn}}</div><br>
         <input type="submit" class="btn btn-primary" value="Update">
-        <a href="{% url 'GetAllStudents' %}" class="btn btn-info">Back To Record</a>
+        <a href="{% url 'AllStudents' %}" class="btn btn-info">Back To Record</a>
       </div>
     </form><br>
 </div>

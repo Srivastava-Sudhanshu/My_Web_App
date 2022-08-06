@@ -7,11 +7,11 @@
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
       {% for branch in branches %}
-      <li><a href="{% url 'GetAllStudentsBranchwise' branch %}">{{ branch }}</a></li>
+      <li><a href="{% url 'AllStudentsBranchwise' branch %}">{{ branch }}</a></li>
       {% endfor %}
     </ul>
-    <div class="right col">Export To Excel <a href ="{% url 'export_excel'%}" type="button" <i class="glyphicon glyphicon-download-alt"></i></a></div>
-    <a href="/student/GetAllStudents" type="button" class="btn btn-default"><i class="fa fa-close"></i> Clear All</a>
+    <div class="right col" style="color: black;">Export To Excel <a href ="{% url 'export_excel'%}" type="button" <i class="glyphicon glyphicon-download-alt" style="color: black;"></i></a></div>
+    <a href="/student/AllStudents" type="button" class="btn btn-default"><i class="fa fa-close"></i> Clear All</a>
     <p class="col" id="pbrname">Showing results based on
       <span>{{branch}}</span>
       Branch.
@@ -19,7 +19,7 @@
   </div>
 </div>
 <div class="container">
-<table class="table">
+<table class="table tbl">
     <thead>
       <tr class="col">
         <th>ID</th>
@@ -49,6 +49,6 @@
         {% endfor %}
     </tbody>
   </table>
-  <p class="col">Total Records Found<span> {{total}}</span></p>
+  <p class="col" style="color: black;">Total Records Found<span> {{total}}</span></p>
 </div>
 {% endblock %}

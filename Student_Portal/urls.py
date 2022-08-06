@@ -6,8 +6,8 @@ import Student_Portal
 
 urlpatterns = [
     path('',views.index),
-    path('GetAllStudents',views.GetAllStudents, name="GetAllStudents"),
-    path('GetAllStudentsBranchwise/<branch>',views.GetAllStudentsBranchwise, name="GetAllStudentsBranchwise"),
+    path('AllStudents',views.GetAllStudents, name="AllStudents"),
+    path('AllStudentsBranchwise/<branch>',views.GetAllStudentsBranchwise, name="AllStudentsBranchwise"),
     path('AddStudent',views.AddStudentScreen),
     path('AddNewStudent',views.AddNewStudent),
     path('<id>/UpdateStudent',views.UpdateStudent, name="UpdateStudent"),

@@ -1,7 +1,7 @@
 {% extends "Accounts/index.html" %}
 
 {% block content %}
-<div class="container">
+<div class="container updateStudent">
   {% if messages %}
     <ul class="messages">
       {% for message in messages %}
@@ -12,19 +12,19 @@
   <label for="total_fee" class="col">Total Fee</label>
   <div>{{fees_form.fee}}</div><br>
   <label for="sid" class="col">Student ID</label>
-  <div><input type="text" name="sid" value={{studfee.student.id}} maxlength="20" required="" id="sid"></div><br>
+  <div><input type="text" name="sid" value={{studfee.student.id}} maxlength="20" size="30" required="" id="sid"></div><br>
   <label for="sname" class="col">Name</label>
-  <div><input type="text" name="snmae" value={{studfee.student.name}} maxlength="20" required="" id="sname"></div><br>
+  <div><input type="text" name="snmae" value={{studfee.student.name}} maxlength="20" size="30" required="" id="sname"></div><br>
   <label for="branch" class="col">Branch</label>
-  <div><input type="text" name="branch" value={{studfee.student.branch}} maxlength="20" required="" id="branch"></div><br>
+  <div><input type="text" name="branch" value={{studfee.student.branch}} maxlength="20" size="30" required="" id="branch"></div><br>
   <label for="roll_no" class="col">Roll No</label>
-  <div><input type="text" name="roll_no" value={{studfee.student.roll_no}} maxlength="20" required="" id="roll_no"></div><br>
+  <div><input type="text" name="roll_no" value={{studfee.student.roll_no}} maxlength="20" size="30" required="" id="roll_no"></div><br>
   <label for="email" class="col">Email-Id</label>
-  <div><input type="text" name="email" value={{studfee.student.email}} maxlength="20" required="" id="email"></div><br>
+  <div><input type="text" name="email" value={{studfee.student.email}} maxlength="20" size="30" required="" id="email"></div><br>
   <label for="current_year" class="col">Current Year</label>
-  <div><input type="text" name="current_year" value={{studfee.student.current_year}} maxlength="20" required="" id="current_year"></div><br>
+  <div><input type="text" name="current_year" value={{studfee.student.current_year}} maxlength="20" size="30" required="" id="current_year"></div><br>
   <label for="due" class="col">To Be Paid</label>
-  <div><input type="text" name="due_amount" value={{studfee.due_amount}} maxlength="20" required="" id="due_amount"></div><br>  
+  <div><input type="text" name="due_amount" value={{studfee.due_amount}} maxlength="20" required="" size="30" id="due_amount"></div><br>  
   <form method="post" action="{% url 'PayFee' studfee.student.id %}">
     {% csrf_token %}
       <div class="container col-sm-6">
@@ -35,7 +35,7 @@
         <label for="status" class="col">Payment Status</label>
         <div>{{form.payment_status}}</div><br>
         <input type="submit" class="btn btn-primary" value="Deposite">
-        <a href="{% url 'GetStudentFeeDetails' %}" class="btn btn-info">Back To Record</a>
+        <a href="{% url 'StudentFeeDetails' %}" class="btn btn-info">Back To Record</a>
       </div>
     </form>
 </div>

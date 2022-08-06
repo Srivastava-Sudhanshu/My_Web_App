@@ -43,6 +43,11 @@ INSTALLED_APPS = [
     'Student_Portal',
     'Accounts',
     'Login',
+    'StudentDashboard',
+    # Celery
+    'django_celery_beat',
+    'django_celery_results',
+    'celerybeat_status'
 ]
 
 MIDDLEWARE = [
@@ -160,4 +165,13 @@ LOGGING = {
 EMAIL_SERVER = 'smtp.gmail.com'
 EMAIL_PORT_NO = 587
 EMAIL_CREDENTIALS_PATH = os.path.abspath("Newfolder/Credentials.txt")
-EMAIL_TEMPLATE = os.path.abspath("email_template/Send_Mails.html")
+DUE_EMAIL_TEMPLATE = os.path.abspath("My_Web_App/Email_Templates/DUE_MAIL.html")
+GENERATE_OTP_TEMPLATE = os.path.abspath("My_Web_App/Email_Templates/GENERATE_OTP_MAIL.html")
+
+#Local Port Address
+Home='http://127.0.0.1:8000'
+STUDENT_DASHBOARD_LOGIN = 'http://127.0.0.1:8000/studentdashboard/login'
+
+#CELERY Settings
+CELERY_RESULT_BACKEND = "django-db"
+BASE_REDIS_URL = os.environ.get('REDIS_URL', 'redis://localhost:6379')
