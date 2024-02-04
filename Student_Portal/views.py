@@ -16,6 +16,7 @@ import xlwt
 from Login.views import SetSession 
 from StudentDashboard.forms import StudentDashboardForm
 import string,random
+from django.db.models import Count
 
 # Create your views here.
 @csrf_exempt
@@ -140,3 +141,10 @@ def export_excel(request):
             ws.write(row_num, col_num, row[col_num], font_style)
     wb.save(response)
     return response
+
+def TotalStudentsBranchwise(request):
+    if(request.method =="GET"):
+        totalStudentCount = Student.objects.values('branch').annotate(StudentCount=Count('branch')).order_by('-StudentCount')
+        #for studentCount in totalStudentCount:
+
+    return HttpResponse(totalStudentCount)

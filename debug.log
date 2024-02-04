@@ -9015,3 +9015,208 @@ WARNING "GET /student/style.css HTTP/1.1" 404 3921
 INFO "GET /static/images/College_BG.webp HTTP/1.1" 200 39722
 WARNING Not Found: /favicon.ico
 WARNING "GET /favicon.ico HTTP/1.1" 404 2727
+INFO Watching for file changes with StatReloader
+INFO "GET / HTTP/1.1" 200 1559
+WARNING Not Found: /static/css/minstyle.css
+WARNING "GET /static/css/minstyle.css HTTP/1.1" 404 179
+WARNING Not Found: /favicon.ico
+WARNING "GET /favicon.ico HTTP/1.1" 404 179
+WARNING Not Found: /static/css/minstyle.css
+WARNING "GET /static/css/minstyle.css HTTP/1.1" 404 179
+INFO "GET / HTTP/1.1" 200 1575
+WARNING Not Found: /static/css/minstyle.css
+WARNING "GET /static/css/minstyle.css HTTP/1.1" 404 179
+WARNING Not Found: /static/css/minstyle.css
+WARNING "GET /static/css/minstyle.css HTTP/1.1" 404 179
+INFO "GET / HTTP/1.1" 200 1575
+WARNING Not Found: /static/css/minstyle.css
+WARNING "GET /static/css/minstyle.css HTTP/1.1" 404 179
+WARNING Not Found: /favicon.ico
+WARNING "GET /favicon.ico HTTP/1.1" 404 179
+INFO "POST / HTTP/1.1" 302 0
+INFO "GET /student/ HTTP/1.1" 200 11099
+WARNING Not Found: /static/javascript/Student_Portal/globalconstants.js
+WARNING Not Found: /static/javascript/Student_Portal/allstudents.js
+WARNING Not Found: /static/javascript/Student_Portal/index.js
+WARNING "GET /static/javascript/Student_Portal/globalconstants.js HTTP/1.1" 404 179
+WARNING Not Found: /static/css/minstyle.css
+WARNING "GET /static/javascript/Student_Portal/allstudents.js HTTP/1.1" 404 179
+WARNING "GET /static/javascript/Student_Portal/index.js HTTP/1.1" 404 179
+WARNING Not Found: /student/style.css
+WARNING "GET /static/css/minstyle.css HTTP/1.1" 404 179
+WARNING "GET /student/style.css HTTP/1.1" 404 179
+WARNING Not Found: /static/images/College_BG.webp
+WARNING "GET /static/images/College_BG.webp HTTP/1.1" 404 179
+WARNING Not Found: /static/css/minstyle.css
+WARNING "GET /static/css/minstyle.css HTTP/1.1" 404 179
+WARNING Not Found: /student/style.css
+WARNING "GET /student/style.css HTTP/1.1" 404 179
+INFO D:\Django Project\My_Web_App\My_Web_App\settings.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO "GET /student/ HTTP/1.1" 200 11099
+INFO "GET /static/javascript/Student_Portal/globalconstants.js HTTP/1.1" 200 103
+INFO "GET /static/javascript/Student_Portal/allstudents.js HTTP/1.1" 200 253
+INFO "GET /static/javascript/Student_Portal/index.js HTTP/1.1" 200 132
+INFO "GET /static/css/minstyle.css HTTP/1.1" 200 4078
+WARNING Not Found: /student/style.css
+WARNING "GET /student/style.css HTTP/1.1" 404 3921
+INFO "GET /static/images/College_BG.webp HTTP/1.1" 200 39722
+WARNING Not Found: /student/style.css
+WARNING "GET /student/style.css HTTP/1.1" 404 3921
+WARNING Not Found: /favicon.ico
+WARNING "GET /favicon.ico HTTP/1.1" 404 2727
+INFO "GET /student/AllStudents HTTP/1.1" 200 15008
+WARNING Not Found: /student/style.css
+WARNING "GET /student/style.css HTTP/1.1" 404 3921
+WARNING Not Found: /student/style.css
+WARNING "GET /student/style.css HTTP/1.1" 404 3921
+INFO "GET /student/AllStudentsBranchwise/EC HTTP/1.1" 200 12322
+INFO "GET /student/AllStudentsBranchwise/style.css HTTP/1.1" 200 9337
+INFO "GET /student/AllStudentsBranchwise/EC HTTP/1.1" 200 12344
+INFO "GET /student/AllStudentsBranchwise/style.css HTTP/1.1" 200 9359
+INFO "GET /student/AllStudentsBranchwise/CE HTTP/1.1" 200 9653
+INFO "GET /student/AllStudentsBranchwise/style.css HTTP/1.1" 200 9359
+INFO Watching for file changes with StatReloader
+INFO "GET /student/AllStudentsBranchwise/CE HTTP/1.1" 200 9653
+INFO "GET /student/AllStudentsBranchwise/style.css HTTP/1.1" 200 9359
+INFO "GET /student/AllStudentsBranchwise/style.css HTTP/1.1" 200 9359
+INFO "GET /student/AllStudentsBranchwise/CE HTTP/1.1" 200 9653
+INFO "GET /student/AllStudentsBranchwise/style.css HTTP/1.1" 200 9359
+INFO "GET /student/AllStudentsBranchwise/CE HTTP/1.1" 200 9653
+INFO "GET /student/AllStudentsBranchwise/style.css HTTP/1.1" 200 9359
+INFO D:\Django Project\My_Web_App\Student_Portal\views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO D:\Django Project\My_Web_App\Student_Portal\views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO D:\Django Project\My_Web_App\Student_Portal\urls.py changed, reloading.
+INFO Watching for file changes with StatReloader
+ERROR Internal Server Error: /student/TotalStudentsBranchwise
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_response(request, response)
+  File "C:\Python\lib\site-packages\django\middleware\clickjacking.py", line 26, in process_response
+    if response.get('X-Frame-Options') is not None:
+AttributeError: 'int' object has no attribute 'get'
+ERROR "GET /student/TotalStudentsBranchwise HTTP/1.1" 500 62317
+INFO Watching for file changes with StatReloader
+ERROR Internal Server Error: /student/TotalStudentsBranchwise
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_response(request, response)
+  File "C:\Python\lib\site-packages\django\middleware\clickjacking.py", line 26, in process_response
+    if response.get('X-Frame-Options') is not None:
+AttributeError: 'int' object has no attribute 'get'
+ERROR "GET /student/TotalStudentsBranchwise HTTP/1.1" 500 64744
+INFO D:\Django Project\My_Web_App\Student_Portal\views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+ERROR Internal Server Error: /student/TotalStudentsBranchwise
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_response(request, response)
+  File "C:\Python\lib\site-packages\django\middleware\clickjacking.py", line 26, in process_response
+    if response.get('X-Frame-Options') is not None:
+AttributeError: 'int' object has no attribute 'get'
+ERROR "GET /student/TotalStudentsBranchwise HTTP/1.1" 500 64272
+INFO D:\Django Project\My_Web_App\Student_Portal\views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+ERROR Internal Server Error: /student/TotalStudentsBranchwise
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_response(request, response)
+  File "C:\Python\lib\site-packages\django\middleware\clickjacking.py", line 33, in process_response
+    response.headers['X-Frame-Options'] = self.get_xframe_options_value(
+AttributeError: 'dict' object has no attribute 'headers'
+ERROR "GET /student/TotalStudentsBranchwise HTTP/1.1" 500 64153
+INFO D:\Django Project\My_Web_App\Student_Portal\views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /student/AllStudents HTTP/1.1" 200 15030
+ERROR Internal Server Error: /student/TotalStudentsBranchwise
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_response(request, response)
+  File "C:\Python\lib\site-packages\django\middleware\clickjacking.py", line 26, in process_response
+    if response.get('X-Frame-Options') is not None:
+  File "C:\Python\lib\site-packages\django\db\models\query.py", line 424, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "C:\Python\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Python\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Python\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Python\lib\site-packages\django\db\models\sql\query.py", line 1393, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Python\lib\site-packages\django\db\models\sql\query.py", line 1412, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Python\lib\site-packages\django\db\models\sql\query.py", line 1283, in build_filter
+    arg, value = filter_expr
+ValueError: too many values to unpack (expected 2)
+WARNING Not Found: /student/style.css
+WARNING "GET /student/style.css HTTP/1.1" 404 4131
+ERROR "GET /student/TotalStudentsBranchwise HTTP/1.1" 500 98580
+INFO Watching for file changes with StatReloader
+INFO D:\Django Project\My_Web_App\Student_Portal\views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+ERROR Internal Server Error: /student/TotalStudentsBranchwise
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_response(request, response)
+  File "C:\Python\lib\site-packages\django\middleware\clickjacking.py", line 26, in process_response
+    if response.get('X-Frame-Options') is not None:
+  File "C:\Python\lib\site-packages\django\db\models\query.py", line 424, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "C:\Python\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Python\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Python\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Python\lib\site-packages\django\db\models\sql\query.py", line 1393, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Python\lib\site-packages\django\db\models\sql\query.py", line 1412, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Python\lib\site-packages\django\db\models\sql\query.py", line 1283, in build_filter
+    arg, value = filter_expr
+ValueError: too many values to unpack (expected 2)
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /student/TotalStudentsBranchwise HTTP/1.1" 200 211
+INFO D:\Django Project\My_Web_App\Student_Portal\views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+ERROR Internal Server Error: /student/TotalStudentsBranchwise
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: TotalStudentsBranchwise() takes 0 positional arguments but 1 was given
+ERROR "GET /student/TotalStudentsBranchwise HTTP/1.1" 500 61173
+WARNING Forbidden (CSRF token missing or incorrect.): /student/TotalStudentsBranchwise
+WARNING "VIEW /student/TotalStudentsBranchwise HTTP/1.1" 403 2519
+INFO D:\Django Project\My_Web_App\Student_Portal\views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO "GET /student/TotalStudentsBranchwise HTTP/1.1" 200 211
+INFO D:\Django Project\My_Web_App\Student_Portal\views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO "GET /student/TotalStudentsBranchwise HTTP/1.1" 200 211
+INFO Watching for file changes with StatReloader
+INFO "GET /student/TotalStudentsBranchwise HTTP/1.1" 200 211
+INFO D:\Django Project\My_Web_App\Student_Portal\views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /student/TotalStudentsBranchwise HTTP/1.1" 200 211
